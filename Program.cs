@@ -19,10 +19,11 @@ namespace Tahminoyunu
                 int secim = 0;
                 while (secim != -1)
                 {
-
-                    Console.WriteLine("Sayı tahmin oyununa hoşgeldiniz. \nBaşlamak için bir zorluk seçin: \n1-Kolay \n2-Orta \n3-Zor \nÇıkmak için '-1'");
-                    secim = Convert.ToInt16(Console.ReadLine());
-                    switch (secim)
+                    do
+                    {
+                        Console.WriteLine("Sayı tahmin oyununa hoşgeldiniz. \nBaşlamak için bir zorluk seçin: \n1-Kolay \n2-Orta \n3-Zor \nÇıkmak için '-1'");
+                        secim = Convert.ToInt16(Console.ReadLine());
+                        switch (secim)
                     {
                         case 1:
                             KolayTahmin();
@@ -40,13 +41,16 @@ namespace Tahminoyunu
                             break;
 
                     }
+                    } while (secim!=1&&secim!=2&&secim!=3&&secim!=-1);
+                    
+                    
                 }
 
             }
             catch (Exception)
             {
                 Console.WriteLine("Bilinmeyen hata oluştu.\nLütfen oyunu tekrar açıp doğru değerler giriniz.");
-                throw;
+                return;
             }
 
 
